@@ -1,18 +1,23 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StatusBar, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
 import FastImage from 'react-native-fast-image';
 import Lottie from 'lottie-react-native';
-import RootNavigator from '@/navigators/RootNavigator';
+import createStore from '@/stores';
+import { PersistGate } from 'redux-persist/lib/integration/react';
+import Loading from '@/components/Loading';
+import RootScreen from '@/containers/Root/RootScreen';
+
+const { store, persistor } = createStore();
 
 const App = () => {
   return (
-    <>
-      <RootNavigator />
-    </>
-    // <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    //   <Text>테스트</Text>
-    //   <Lottie source={require('@/assets/lottie/Lottie.json')} autoPlay loop />
-    // </View>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        <RootScreen />
+      </PersistGate>
+    </Provider>
   );
 };
 
