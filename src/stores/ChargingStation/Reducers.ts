@@ -16,11 +16,11 @@ export const fetchChargingStationReducer = (state = INITIAL_STATE, actions: any)
       }
       case 'photoList': {
         if (draft.photoPage === 0) {
-          draft.photoList = data;
+          draft.photoList = data.list;
         } else {
-          draft.photoList = [...draft.photoList, ...data];
+          draft.photoList = [...draft.photoList, ...data.list];
         }
-        draft.photoPage++;
+        draft.photoPage = data.page + 1;
 
         break;
       }

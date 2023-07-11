@@ -18,18 +18,19 @@ const ChargingStationScreen = () => {
   );
 
   useEffect(() => {
-    if (isFocused) {
-      getPhotoList();
-    } else {
+    // dispatch(ChargingStationActions.fetchChargingStationReducer({ type: 'photoListInit' }));
+    // getPhotoList();
+    return () => {
       dispatch(ChargingStationActions.fetchChargingStationReducer({ type: 'photoListInit' }));
-    }
+    };
   }, [isFocused]);
 
-  const getPhotoList = () => {
+  const getPhotoList = (type?: string) => {
     const params = {
-      _start: photoPage,
-      _limit: 10,
+      page: type === 'refresh' ? 0 : photoPage,
+      perPage: 10,
     };
+
     dispatch(ChargingStationActions.fetchChargingStationPhotoList(params));
   };
 
@@ -45,7 +46,7 @@ const ChargingStationScreen = () => {
           }}
           data={photoList || []}
           renderItem={({ item }) => (
-            <Pressable style={{ marginBottom: 20 }}>
+            <View style={{ marginBottom: 20 }}>
               <View
                 style={{
                   width: width - 40,
@@ -64,15 +65,15 @@ const ChargingStationScreen = () => {
               <Text>{`albumId: ${item?.albumId || ''}`}</Text>
               <Text>{`id: ${item?.id || ''}`}</Text>
               <Text>{`title: ${item?.title || ''}`}</Text>
-            </Pressable>
+            </View>
           )}
           keyExtractor={(item, index) => index.toString()}
           initialNumToRender={10}
           maxToRenderPerBatch={13}
           windowSize={7}
           showsVerticalScrollIndicator={false}
-          refreshing={false}
-          onRefresh={() => getPhotoList()}
+          refreshing={true}
+          onRefresh={() => getPhotoList('refresh')}
           onEndReached={() => getPhotoList()}
           ListEmptyComponent={() => (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

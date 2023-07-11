@@ -5,22 +5,28 @@ import { Axios } from '@/services/Axios';
 
 export function* fetchChargingStationPhotoList(data: any): any {
   try {
-    console.log(data);
-
+    console.log('fetchChargingStationPhotoList######', data);
+    const { page, perPage } = data.params;
+    //
     yield put(CommonActions.fetchCommonReducer({ type: 'isLoading', data: true }));
 
+    const params = {
+      _start: page * perPage,
+      _limit: perPage,
+    };
     const payload = {
-      ...data,
+      params,
       url: 'https://jsonplaceholder.typicode.com/photos',
     };
 
     const response = yield call(Axios.GET, payload);
 
-    console.log('len:: ', response.length);
-
     if (response.length > 0) {
       yield put(
-        ChargingStationActions.fetchChargingStationReducer({ type: 'photoList', data: response }),
+        ChargingStationActions.fetchChargingStationReducer({
+          type: 'photoList',
+          data: { list: response, page },
+        }),
       );
     }
 
