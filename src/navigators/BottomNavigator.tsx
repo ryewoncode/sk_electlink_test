@@ -16,6 +16,7 @@ const BottomNavigator = () => (
       backBehavior="none"
       tabBar={(props: BottomTabBarProps) => <CustomTabBar {...props} />}
       initialRouteName="HomeScreen"
+      screenOptions={{ headerShown: false }}
     >
       <Tab.Screen name="StoreScreen" component={StoreScreen} />
       <Tab.Screen name="ChargingStationScreen" component={ChargingStationScreen} />
