@@ -101,51 +101,50 @@ const HomeScreen = () => {
         <View style={{ marginBottom: 10 }}>
           <Text style={styles.sectionTitle}>배너 영역</Text>
         </View>
-        {bannerList.length > 0 && (
-          <FlatList
-            ref={flatRef}
-            data={transList}
-            renderItem={({ item }) => (
-              <Pressable
-                onPress={() => {
-                  navigate('HomeBannerDetailScreen', { url: item.url, title: item.title });
+
+        <FlatList
+          ref={flatRef}
+          data={transList}
+          renderItem={({ item }) => (
+            <Pressable
+              onPress={() => {
+                navigate('HomeBannerDetailScreen', { url: item.url, title: item.title });
+              }}
+            >
+              <View
+                style={{
+                  width: width - 40,
+                  height: (width - 40) * 0.2,
+                  backgroundColor: '#FFFF',
+                  borderRadius: 20,
                 }}
               >
-                <View
-                  style={{
-                    width: width - 40,
-                    height: (width - 40) * 0.2,
-                    backgroundColor: '#FFFF',
-                    borderRadius: 20,
-                  }}
-                >
-                  <FastImage
-                    style={{ width: '100%', height: '100%', borderRadius: 20 }}
-                    source={{ uri: item.thumbnailUrl || '' }}
-                    resizeMode={FastImage.resizeMode.cover}
-                  />
-                </View>
-              </Pressable>
-            )}
-            keyExtractor={(xItem, xIndex) => xIndex.toString()}
-            initialNumToRender={3}
-            maxToRenderPerBatch={4}
-            windowSize={7}
-            pagingEnabled
-            horizontal
-            disableIntervalMomentum
-            decelerationRate="fast"
-            snapToInterval={width - 40}
-            showsHorizontalScrollIndicator={false}
-            snapToAlignment={'start'}
-            // getItemLayout={getItemLayout}
-            onViewableItemsChanged={onViewableItemsChanged?.current}
-            scrollEnabled={bannerList?.length > 1}
-            viewabilityConfig={{
-              itemVisiblePercentThreshold: 50,
-            }}
-          />
-        )}
+                <FastImage
+                  style={{ width: '100%', height: '100%', borderRadius: 20 }}
+                  source={{ uri: item.thumbnailUrl || '' }}
+                  resizeMode={FastImage.resizeMode.cover}
+                />
+              </View>
+            </Pressable>
+          )}
+          keyExtractor={(xItem, xIndex) => xIndex.toString()}
+          initialNumToRender={3}
+          maxToRenderPerBatch={4}
+          windowSize={7}
+          pagingEnabled
+          horizontal
+          disableIntervalMomentum
+          decelerationRate="fast"
+          snapToInterval={width - 40}
+          showsHorizontalScrollIndicator={false}
+          snapToAlignment={'start'}
+          // getItemLayout={getItemLayout}
+          onViewableItemsChanged={onViewableItemsChanged?.current}
+          scrollEnabled={bannerList?.length > 1}
+          viewabilityConfig={{
+            itemVisiblePercentThreshold: 50,
+          }}
+        />
         <View style={{ marginTop: 5 }}>
           <Text>배너 클릭 시, 상세 페이지로 이동 가능합니다.</Text>
         </View>
