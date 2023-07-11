@@ -38,15 +38,15 @@ yarn android
 
 ## 구현 기능
 
-| 구현 기능                                                                                  |           화면           |
-| :----------------------------------------------------------------------------------------- | :----------------------: |
-| Lottie 적용1(Splash)                                                                       |  ![Alt text](image.png)  |
-| Lottie 적용2(Loading)                                                                      | ![Alt text](image-1.png) |
-| Bottom Tab                                                                                 | ![Alt text](image-2.png) |
-| Flicking 가로 배너                                                                         | ![Alt text](image-1.png) |
-| 세로 무한 스크롤                                                                           | ![Alt text](image-3.png) |
-| Stack Navigation을 활용한 상세 페이지 이동 <br> (홈 화면의 배너 클릭 시 상세화면으로 이동) | ![Alt text](image-4.png) |
-| 공통 헤더                                                                                  | ![Alt text](image-5.png) |
+| 구현 기능                                                                                  |                  화면                  |
+| :----------------------------------------------------------------------------------------- | :------------------------------------: |
+| Lottie 적용1(Splash)                                                                       |  <img src='image.png' width="200" />   |
+| Lottie 적용2(Loading)                                                                      | <img src='image-1.png' width="200" />  |
+| Bottom Tab                                                                                 | <img src='image-2.png' width="200" />  |
+| Flicking 가로 배너                                                                         | !<img src='image-1.png' width="200" /> |
+| 세로 무한 스크롤                                                                           | <img src='image-3.png' width="200" />  |
+| Stack Navigation을 활용한 상세 페이지 이동 <br> (홈 화면의 배너 클릭 시 상세화면으로 이동) | <img src='image-4.png' width="200" />  |
+| 공통 헤더                                                                                  | <img src='image-5.png' width="200" />  |
 
 ---
 
