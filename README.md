@@ -7,6 +7,18 @@ SK 일렉링크 과제
 - 지원 포지션 : 사용자 앱 개발자
 - 제출자 : 김례원
 
+## 실행 CLI
+
+```bash
+yarn run start --reset-cache
+
+# ios simulator 실행 시
+yarn ios
+
+# android emulator 실행 시
+yarn android
+```
+
 ## 사용 라이브러리
 
 - React Native : 0.72.1
